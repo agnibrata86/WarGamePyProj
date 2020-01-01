@@ -35,18 +35,10 @@ class Pool:
         Returns the player Object that is winner otherwise None.
         @return: Player object or None
         """
-        self.show_pool()
         values = [card.value for card in self.cards]
         self.best = max(values)
         if values.count(self.best) == 1:
             return self.players[values.index(self.best)]
-
-    def show_pool(self):
-        """
-        Shows all the cards played by both players in a round.
-        """
-        for player, card in zip(self.players, self.cards):
-            print('{} laid down a {}.'.format(player.name, card))
 
     def reward(self, player):
         """

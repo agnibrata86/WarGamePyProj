@@ -41,12 +41,14 @@ class Game:
         """
         if tied is False:
             self.count_round()
+        else:
+            print('..Its a Tie..')
         pool = Pool()
 
         for player in self.players:
-            player.drop_card(pool)
             if tied:
                 player.drop_bonus(pool, 3)
+            player.drop_card(pool)
         winner = pool.winner
         if winner is not None:
             pool.reward(winner)
