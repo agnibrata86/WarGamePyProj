@@ -20,7 +20,7 @@
 7. At the end creating a mkdoc for the project.
 
 #### How to use the APP? ####
-1. Install python3
+1. Install `python3`
 2. `git clone https://github.com/agnibrata86/WarGamePyProj.git`
 3. `cd <gitcloned folder>/WarGamePyProj`
 4. Run as below:
