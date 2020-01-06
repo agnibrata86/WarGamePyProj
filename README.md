@@ -9,6 +9,7 @@
    If neither player has enough cards, the one who runs out first loses. If both run out simultaneously, it's a draw.
 5. Game is over when a player doesn't have any cards. The player with
    cards remaining is the winner.
+6. Cases like when there is no tie(war). 1 tie. 3 tie. One player ran out of cards in a tie. All the cards tie.
    
 #### New Can be features: ####
 1. Making the game for 3-4 players and different variations like Casino-war
