@@ -11,6 +11,13 @@ class Player:
         """
         self.name, self.hand = name, hand
 
+    def __str__(self):
+        """
+        Returns the player and hand.
+        @return: as PlayerName => Hand
+        """
+        return '{} => [{}]'.format(self.name, self.hand)
+
     def drop_card(self, pool):
         """
         At the start of a round Player drops the top card.
@@ -19,7 +26,7 @@ class Player:
         if self.hand.has_cards:
             top_card = self.hand.take_top()
             pool.add_card(top_card, self)
-            self.laid_cards(self.name, 'single', top_card)
+            self.laid_cards('Single', top_card)
 
     def drop_bonus(self, pool, count):
         """
@@ -30,7 +37,7 @@ class Player:
         bonus_cards = self.hand.cards[:count]
         pool.add_bonus(bonus_cards)
         self.hand.cards = self.hand.cards[count:]
-        self.laid_cards(self.name, 'WAR', [card.__str__() for card in bonus_cards])
+        self.laid_cards('WAR', [card.__str__() for card in bonus_cards])
 
     def give_cards(self, cards):
         """
@@ -39,18 +46,11 @@ class Player:
         """
         self.hand.add_all(cards)
 
-    @staticmethod
-    def laid_cards(name, card_type, cards):
+    def laid_cards(self, card_type, cards):
         """
         Prints the laid single card or bonus(WAR) cards of the player.
-        @param name: Name of the player
         @param card_type: string 'Single' or 'WAR'
         @param cards: card or list of bonus cards
         """
-        print('{} laid {} card(s) => {}'.format(name, card_type, cards))
+        print('{} laid {} card(s) => {}'.format(self.name, card_type, cards))
 
-    def show_hand(self):
-        """
-        Shows the hand of both the players.
-        """
-        print(self.name, 'has', self.hand)

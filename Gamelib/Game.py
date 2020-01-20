@@ -31,7 +31,7 @@ class Game:
         self.deck.shuffle()
         self.deck.setup_hands(self.players)
         for player in self.players:
-            player.show_hand()
+            print(str(player))
 
     def play_once(self, tied=False):
         """

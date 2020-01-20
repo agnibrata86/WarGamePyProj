@@ -1,4 +1,3 @@
-
 class Hand:
     """
     Hand class is for players hand with list of cards.
@@ -19,7 +18,7 @@ class Hand:
 
     def add_card(self, card):
         """
-        Add card to the hand.
+        Add card to bottom of the hand.
         @param card: takes the card object as input.
         """
         self.cards.append(card)

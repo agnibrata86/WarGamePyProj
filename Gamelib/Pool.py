@@ -10,10 +10,18 @@ class Pool:
         self.cards = []
         self.players = []
         self.bonus = []
+        self.best = None
+
+    def __str__(self):
+        """
+        Returns the card and corresponding player in the pool.
+        @return: print as [CARD :: PlayerName]
+        """
+        return '[{}]'.format(', '.join(map(lambda x, y: str(x) + ' :: ' + y.name, self.cards, self.players)))
 
     def add_card(self, card, player):
         """
-        Adds cad and corresponding player to the pool.
+        Adds card and corresponding player to the pool.
         @param card: Get card object as input.
         @param player: And corresponding player object as input.
         """

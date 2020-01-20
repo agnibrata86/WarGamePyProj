@@ -7,11 +7,19 @@ class Deck:
     """
     Deck class is to setup a card game.
     """
+
     def __init__(self):
         """
         Initializes with 52 cards with suite & rank.
         """
-        self.cards = [Card(s, r) for s in Card.SUITE for r in Card.RANKS]
+        self.cards = [Card(s, r) for s in Card.SUITES for r in Card.RANKS]
+
+    def __str__(self):
+        """
+        Returns the suite and rank of all the cards of the Deck.
+        @return: as list of SUITE-RANK
+        """
+        return '[{}]'.format(', '.join(map(str, self.cards)))
 
     def shuffle(self):
         """
