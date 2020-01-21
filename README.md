@@ -24,6 +24,10 @@
 1. Install `python3`
 2. `git clone https://github.com/agnibrata86/WarGamePyProj.git`
 3. `cd <gitcloned folder>/WarGamePyProj`
+4. `python3 -m venv pytest-env`
+5. `source pytest-env/bin/activate`
+6. `pip install pytest`
+7. Unit test as : `pytest -v`
 4. Run as below:
 ```
 $ python3 start.py

@@ -11,7 +11,6 @@ class Game:
         play_once
         count_round
         play_all
-        show_winner
         finished - is property True or False
     """
 
@@ -72,19 +71,10 @@ class Game:
         """
         Starting of the game. Called until finished and show the winner.
         """
+        winner = None
         while not self.finished:
-            self.play_once()
-        self.show_winner()
-
-    def show_winner(self):
-        """
-        Prints the winner who has cards only.
-        """
-        for player in self.players:
-            if player.hand.has_cards:
-                print()
-                print(player.name, 'wins the WAR!!')
-                break
+            winner = self.play_once()
+        return winner.name
 
     @property
     def finished(self):

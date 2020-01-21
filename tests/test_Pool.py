@@ -6,6 +6,7 @@ from Gamelib import Player, Pool
 
 @pytest.fixture
 def pool_with_diff_value_card():
+    """setting pool with different value cards."""
     card1, card2 = Card('D', '5'), Card('S', '8')
     player1, player2 = Player('Player1', Hand()), Player('Player2', Hand())
     player1.hand.add_card(card1)
@@ -18,6 +19,7 @@ def pool_with_diff_value_card():
 
 @pytest.fixture
 def pool_with_same_value_card():
+    """setting pool with some same value cards."""
     player1, player2 = Player('Player1', Hand()), Player('Player2', Hand())
     player1.hand.cards = [Card('D', 'A'), Card('D', '8'), Card('H', '3'), Card('S', '9'), Card('C', 'Q')]
     player2.hand.cards = [Card('H', 'A'), Card('C', 'J'), Card('H', '2'), Card('S', '2'), Card('S', 'A')]
@@ -33,6 +35,7 @@ def pool_with_same_value_card():
 
 
 def test_pool_empty_initialization():
+    """Empty pool initialization"""
     pool = Pool()
     assert len(pool.cards) == 0
     assert len(pool.players) == 0
@@ -40,6 +43,7 @@ def test_pool_empty_initialization():
 
 
 def test_pool_add_card_1():
+    """Adding 1 card to pool"""
     player1 = Player('Player1', Hand())
     card1 = Card('D', 'A')
     pool = Pool()
@@ -48,6 +52,7 @@ def test_pool_add_card_1():
 
 
 def test_pool_add_card_multiple():
+    """ Adding multiple cards to pool using add_card """
     player1 = Player('Player1', Hand())
     card1 = Card('D', 'A')
     player2 = Player('Player2', Hand())
@@ -62,6 +67,7 @@ def test_pool_add_card_multiple():
 
 
 def test_pool_add_bonus_when_tie():
+    """Adding cards to bonus bucket of pool."""
     player1 = Player('Player1', Hand())
     card1 = Card('D', '5')
     player2 = Player('Player2', Hand())
@@ -75,6 +81,7 @@ def test_pool_add_bonus_when_tie():
 
 
 def test_pool_winner_cards_value_differ():
+    """Pool winner when card value differ"""
     player1 = Player('Player1', Hand())
     card1 = Card('D', '5')
     player2 = Player('Player2', Hand())
@@ -86,6 +93,7 @@ def test_pool_winner_cards_value_differ():
 
 
 def test_pool_winner_cards_value_same():
+    """Pool winner is None when card value same"""
     player1 = Player('Player1', Hand())
     card1 = Card('D', '5')
     player2 = Player('Player2', Hand())
@@ -97,6 +105,7 @@ def test_pool_winner_cards_value_same():
 
 
 def test_pool_reward_with_no_tie(pool_with_diff_value_card):
+    """Reward cards to pool winner, with out tie"""
     pool = pool_with_diff_value_card
     player2 = pool_with_diff_value_card.players[1]
     player1 = pool_with_diff_value_card.players[0]
@@ -106,6 +115,7 @@ def test_pool_reward_with_no_tie(pool_with_diff_value_card):
 
 
 def test_pool_reward_with_tie(pool_with_same_value_card):
+    """Reward cards to pool winner, with tie"""
     pool = pool_with_same_value_card
     player2 = pool_with_same_value_card.players[1]
     player1 = pool_with_same_value_card.players[0]
@@ -115,5 +125,6 @@ def test_pool_reward_with_tie(pool_with_same_value_card):
 
 
 def test_pool_tied():
+    """Pool is tied"""
     pool = Pool()
     assert pool.tied

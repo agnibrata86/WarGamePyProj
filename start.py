@@ -1,8 +1,6 @@
 from Gamelib import Game
 
 
-################################################################################
-
 def main(players):
     """
     Creates the Game object, then distribute cards to both players. Play the game.
@@ -10,10 +8,9 @@ def main(players):
     """
     game = Game(players)
     game.deal_cards()
-    game.play_all()
+    winner = game.play_all()
+    print('\n\n {} - wins the WAR Game!!'.format(winner))
 
-
-################################################################################
 
 if __name__ == '__main__':
     names = [name.strip() for name in input('Enter Names of Player1 and Player2 with comma separated: ').split(',')]

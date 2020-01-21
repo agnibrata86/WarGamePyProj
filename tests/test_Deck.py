@@ -20,6 +20,7 @@ def test_deck_shuffle():
 
 
 def test_deck_setup_hands_makes_empty():
+    """Check if all the cards are distributed. By check deck len = 0"""
     deck = Deck()
     players = [Player(name, Hand()) for name in ['player1', 'player2']]
     deck.setup_hands(players)
@@ -27,6 +28,7 @@ def test_deck_setup_hands_makes_empty():
 
 
 def test_deck_setup_hands_for_2_gives_26_each():
+    """For 2 player each has 26 cards in their hand"""
     deck = Deck()
     player1 = Player('player1', Hand())
     player2 = Player('player2', Hand())
@@ -37,6 +39,7 @@ def test_deck_setup_hands_for_2_gives_26_each():
 
 
 def test_deck_setup_hands_for_4_gives_13_each():
+    """For 4 player each has 13 cards in their hand"""
     deck = Deck()
     player1 = Player('player1', Hand())
     player2 = Player('player2', Hand())
